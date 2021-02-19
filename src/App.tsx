@@ -8,6 +8,8 @@ function App() {
      <Ideas.AsylumController />
      <Ideas.AccountController />
      <Ideas.PolicyController />
+     <Ideas.BankAccountController />
+     <Ideas.ShiftController />
     </div>
   );
 }
