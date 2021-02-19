@@ -14,7 +14,7 @@ const EmployeeView: React.FC<EmployeeViewProps> = ({ name, id, availableShifts, 
       Employee name: {name},
       ID: {id},
       Available shifts: {availableShifts.join(", ")},
-      Hourly wage: {hourlyWage}
+      Hourly wage: {hourlyWage.toPrecision(4)}
     </div>
   )
 }
