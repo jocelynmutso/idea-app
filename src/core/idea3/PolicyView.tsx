@@ -3,18 +3,22 @@ import { PolicyDatesView } from './PolicyDatesView'
 
 
 interface PolicyViewProps {
-  type: string,
-  price: number,
-  effectiveDate: Date,
+  policy: {
+   type: string,
+   price: number,
+   effectiveDate: Date,
+  }
+  
 }
 
 
-const PolicyView: React.FC<PolicyViewProps> = ({ type, price, effectiveDate }) => {
+const PolicyView: React.FC<PolicyViewProps> = ({ policy }) => {
   return (
     <div>
-      Policy Type: {type},
-      Policy Price: {price}
-      <PolicyDatesView date={effectiveDate} />
+      &nbsp; &nbsp; &nbsp; &nbsp;
+      Policy Type: {policy.type},
+      Policy Price: {policy.price}
+      <PolicyDatesView date={policy.effectiveDate} />
     </div>
   )
 }
