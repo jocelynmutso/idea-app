@@ -11,7 +11,7 @@ const ClientView: React.FC<ClientViewProps> = ({ name, id }) => {
   return (
     <div>
       Client Name: {name}
-    Client ID: {id}
+      Client ID: {id}
     </div>
   )
 }
