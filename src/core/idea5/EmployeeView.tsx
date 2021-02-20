@@ -2,19 +2,21 @@ import React from 'react';
 
 
 interface EmployeeViewProps {
-  name: string,
-  id: string,
-  availableShifts: string[],
-  hourlyWage: number
+  employee: {
+    name: string,
+    id: string,
+    availableShifts: string[],
+    hourlyWage: number
+  }
 }
 
-const EmployeeView: React.FC<EmployeeViewProps> = ({ name, id, availableShifts, hourlyWage }) => {
+const EmployeeView: React.FC<EmployeeViewProps> = ({employee}) => {
   return (
     <div>
-      Employee name: {name},
-      ID: {id},
-      Available shifts: {availableShifts.join(", ")},
-      Hourly wage: {hourlyWage.toPrecision(4)}
+      Employee name: {employee.name},
+      ID: {employee.id},
+      Available shifts: {employee.availableShifts.join(", ")},
+      Hourly wage: {employee.hourlyWage.toPrecision(4)}
     </div>
   )
 }

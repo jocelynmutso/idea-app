@@ -2,15 +2,17 @@ import React from 'react';
 
 
 interface AccountOwnerViewProps {
-  ownerName: string,
-  ownerId: string,
+  owner: {
+   name: string,
+   id: string,
+  }
 }
 
-const AccountOwnerView: React.FC<AccountOwnerViewProps> = ({ ownerName, ownerId }) => {
+const AccountOwnerView: React.FC<AccountOwnerViewProps> = ({ owner }) => {
   return (
     <div>
-      Account Owner Name: {ownerName},
-      Account Owner ID: {ownerId}
+      Account Owner Name: {owner.name},
+      Account Owner ID: {owner.id}
     </div>
   )
 }

@@ -1,18 +1,21 @@
 import React from 'react';
-import {AccountServicesView} from './AccountServicesView';
+import { AccountServicesView  } from './AccountServicesView';
 
 interface BankAccountViewProps {
-  id: string,
-  balance: number,
-  service: string
+  account: {
+   id: string,
+   balance: number,
+   service: string
+  }
 }
 
-const BankAccountView: React.FC<BankAccountViewProps> = ({ id, balance, service }) => {
+const BankAccountView: React.FC<BankAccountViewProps> = ({ account }) => {
   return (
     <div>
-      Account ID: {id}
-      Balance: {balance}
-      <AccountServicesView service={service} />
+      Account id: {account.id}
+      Account balance: {account.balance}
+      Active services: {account.service}
+      <AccountServicesView service={account.service} />
     </div>
   )
 }
