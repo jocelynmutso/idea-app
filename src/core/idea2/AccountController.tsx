@@ -39,6 +39,14 @@ const AccountController: React.FC<AccountControllerProps> = ({ }) => {
   const handleClient = (name: string, id: string) => {
     console.log("Client details: ", name, id)
   }
+  
+  const handleAccount = (payment: number, cardHolder: boolean) => {
+    console.log("Account details: " + " Payment: " ,payment, " Cardholder?: ", cardHolder )
+  }
+  
+  const handlePurchaseHistory = (purchase: string) => {
+    console.log("Purchase history: " , purchase )
+  }
 
 
   return (
@@ -46,8 +54,8 @@ const AccountController: React.FC<AccountControllerProps> = ({ }) => {
       <div>
         Client Account Details
         <ClientView name={umbrella.client.name} id={umbrella.client.id} handleClient={handleClient}/>
-        <AccountView payment={umbrella.account.payment} cardHolder={umbrella.account.cardHolder} />
-        <PurchaseHistoryView purchase={umbrella.purchaseHistory.purchase} />
+        <AccountView payment={umbrella.account.payment} cardHolder={umbrella.account.cardHolder} handleAccount={handleAccount} />
+        <PurchaseHistoryView purchase={umbrella.purchaseHistory.purchase} handlePurchaseHistory={handlePurchaseHistory}/>
       </div>
     </div>
   )

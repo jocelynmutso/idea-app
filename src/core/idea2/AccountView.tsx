@@ -7,11 +7,13 @@ import { LoyaltyCardMemberView } from './LoyaltyCardMemberView'
 interface AccountViewProps {
   payment: number
   cardHolder: boolean
+  
+  handleAccount: (payment: number, cardHolder: boolean) => void;
 }
 
-const AccountView: React.FC<AccountViewProps> = ({payment, cardHolder}) => {
+const AccountView: React.FC<AccountViewProps> = ({payment, cardHolder, handleAccount}) => {
   return (
-    <div>
+    <div onClick={() => {handleAccount(payment, cardHolder)}}>
     <PaymentHistoryView payment={payment} />
     <LoyaltyCardMemberView isCardHolder={cardHolder} />
     </div>
