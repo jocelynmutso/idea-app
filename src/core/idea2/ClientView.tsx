@@ -2,16 +2,20 @@ import React from 'react';
 
 
 interface ClientViewProps {
-  name: string,
-  id: string,
+  client: {
+   name: string,
+   id: string,
+  }
+
+  handleClient:(client: { name: string, id: string }) => void;
 
 }
 
-const ClientView: React.FC<ClientViewProps> = ({ name, id }) => {
+const ClientView: React.FC<ClientViewProps> = ({ client, handleClient}) => {
   return (
-    <div>
-      Client Name: {name}
-      Client ID: {id}
+    <div onClick={()=> handleClient(client)}>
+      Client Name: {client.name}
+      Client ID: {client.id}
     </div>
   )
 }

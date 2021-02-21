@@ -7,12 +7,17 @@ interface AccountControllerProps {
 
 }
 
-
-interface ClientDetails {
-  name: string,
-  id: string
+interface AccountUmbrella {
+  client: ClientDetails,
+  account: AccountDetails,
+  purchaseHistory: PurchaseHistoryDetails
 }
 
+interface ClientDetails {
+   name: string,
+   id: string
+}
+   
 interface AccountDetails {
   payment: number,
   cardHolder: boolean
@@ -23,19 +28,26 @@ interface PurchaseHistoryDetails {
 }
 
 
-const AccountController: React.FC<AccountControllerProps> = ({}) => {
-  
-  const newClientDetails: ClientDetails = {name: "Amanda Jerimiah", id: "FA009"}
-  const newAccountDetails: AccountDetails = {payment: 542, cardHolder: true}
-  const newPurchaseDetails: PurchaseHistoryDetails = {purchase: "Stuffed Trout"}
-  
+const AccountController: React.FC<AccountControllerProps> = ({ }) => {
+
+  const umbrella: AccountUmbrella = {
+    client: {name: "Amanda Jerimiah", id: "FA009" },
+    account: { payment: 542, cardHolder: true },
+    purchaseHistory: { purchase: "Stuffed Trout" }
+  }
+
+  const handleClient = (client: ClientDetails) => {
+    console.log("Client details: ", client)
+  }
+
+
   return (
     <div>
       <div>
         Client Account Details
-        <ClientView name={newClientDetails.name} id={newClientDetails.id} />
-        <AccountView payment={newAccountDetails.payment} cardHolder={newAccountDetails.cardHolder} />
-        <PurchaseHistoryView purchase = {newPurchaseDetails.purchase} />
+        <ClientView client={umbrella.client} handleClient={handleClient}/>
+        <AccountView payment={umbrella.account.payment} cardHolder={umbrella.account.cardHolder} />
+        <PurchaseHistoryView purchase={umbrella.purchaseHistory.purchase} />
       </div>
     </div>
   )
