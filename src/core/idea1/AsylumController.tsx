@@ -1,9 +1,16 @@
 import React from 'react';
 import { PatientAccountView } from './PatientAccountView';
-import {PatientView} from './PatientView'
+import { PatientView } from './PatientView'
+import { TreatmentView } from './TreatmentView';
 
 interface AsylumControllerProps {
-  
+
+}
+
+interface Umbrella {
+  patients: PatientDetails[],
+  account: PatientAccountDetails,
+  treatment: TreatmentDetails,
 }
 
 interface PatientDetails {
@@ -11,10 +18,9 @@ interface PatientDetails {
 }
 
 interface PatientAccountDetails {
-  account: {
-    amount: number,
-    accountNumber: string
-  }
+  amount: number,
+  accountNumber: string
+
 }
 
 interface TreatmentDetails {
@@ -22,51 +28,40 @@ interface TreatmentDetails {
 }
 
 
-const AsylumController: React.FC<AsylumControllerProps> = ({}) => {
-  
-  const newPatient: PatientDetails = {name: "Crazy Jebediah"};
-  const newPatient1: PatientDetails = {name: "Lunatic Larry"};
-  const newPatient2: PatientDetails = {name: "Insane Ivan"};
-  
-  const jebediahAccount: PatientAccountDetails = {
-    account: {
-      amount: 500,
-      accountNumber: "JB-00331"
-    }
+const AsylumController: React.FC<AsylumControllerProps> = ({ }) => {
+
+  const umbrella: Umbrella = {
+
+    patients: [
+      { name: "Crazy Jebediah" },
+      { name: "Lunatic Larry" },
+      { name: "Insane Ivan" }
+    ],
+
+    account: {amount: 5402, accountNumber: "Fg3048ea"},
+    
+    treatment: {type: "hydrotherapy"}
+  }
+
+  const handlePatient = (name: string) => {
+    console.log("Patient Name ", name)
   }
   
-  const larryAccount: PatientAccountDetails = {
-    account: {
-      amount: 4110,
-      accountNumber: "LL-33122"
-    }
+  const handleAccount = (amount: number, accountNumber: string) => {
+    console.log("Account Balance: " , amount, "Account number: ", accountNumber )
   }
   
-  const ivanAccount: PatientAccountDetails = {
-    account: {
-      amount: 10,
-      accountNumber: "II-512"
-    }
+  const handleTreatment = (treatment: string) => {
+    console.log("Treatment selected: " , treatment)
   }
-  
-  const treatment: TreatmentDetails = {type: "electroshock therapy"}
-  
-  
-  
-  
+
+
   return (
     <div>
       <div>Welcome to the asylum</div>
-      <PatientView name={newPatient.name} treatment={treatment.type}/>
-        <PatientAccountView account={jebediahAccount.account} />
-            
-      <PatientView name={newPatient1.name} treatment={treatment.type} />
-        <PatientAccountView account={larryAccount.account}/>
-        
-      <PatientView name={newPatient2.name} treatment={treatment.type}/>
-        <PatientAccountView account={ivanAccount.account} />
-      
-
+      {umbrella.patients.map((patient, index) => (<PatientView name={patient.name} key={index} handlePatient={handlePatient}/>))}
+      <PatientAccountView amount={umbrella.account.amount} accountNumber={umbrella.account.accountNumber} handleAccount={handleAccount} />
+      <TreatmentView treatmentType={umbrella.treatment.type} handleTreatment={handleTreatment}/>
     </div>
   )
 }

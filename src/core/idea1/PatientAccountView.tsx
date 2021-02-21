@@ -2,19 +2,19 @@ import React from 'react';
 
 
 interface PatientAccountViewProps {
-  account: {
     amount: number,
-    accountNumber: string
-  }
+    accountNumber: string,
+    handleAccount:(amount: number, accountNumber: string) => void;
 }
 
 
-const PatientAccountView: React.FC<PatientAccountViewProps> = ({account}) => {
+
+const PatientAccountView: React.FC<PatientAccountViewProps> = ({amount, accountNumber, handleAccount}) => {
   
   return (
-    <div>
+    <div onClick={() => handleAccount(amount, accountNumber)}>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      account: {account.accountNumber}, amount: {account.amount}
+      account: {accountNumber}, amount: {amount}
     </div>
   )
   

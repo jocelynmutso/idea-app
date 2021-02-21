@@ -5,16 +5,15 @@ import {TreatmentView} from './TreatmentView'
 
 interface PatientViewProps {
   name: string
-  treatment: string
+  handlePatient: (name: string) => void;
 }
 
 
-const PatientView: React.FC<PatientViewProps> = ({ name, treatment }) => {
+const PatientView: React.FC<PatientViewProps> = ({ name, handlePatient }) => {
 
   return (
-    <div>
+    <div onClick={() => handlePatient(name)}>
       <div>patient: {name}</div>
-      <TreatmentView treatmentType={treatment} />
     </div>
   )
 }
