@@ -1,11 +1,9 @@
 import React from 'react';
-import { AccountServicesView  } from './AccountServicesView';
 
 interface BankAccountViewProps {
   account: {
    id: string,
-   balance: number,
-   service: string
+   balance: number
   }
 }
 
@@ -14,8 +12,6 @@ const BankAccountView: React.FC<BankAccountViewProps> = ({ account }) => {
     <div>
       Account id: {account.id}
       Account balance: {account.balance}
-      Active services: {account.service}
-      <AccountServicesView service={account.service} />
     </div>
   )
 }

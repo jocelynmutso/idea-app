@@ -22,6 +22,7 @@ interface PurchaseHistoryDetails {
   purchase: string
 }
 
+
 const AccountController: React.FC<AccountControllerProps> = ({}) => {
   
   const newClientDetails: ClientDetails = {name: "Amanda Jerimiah", id: "FA009"}
@@ -33,7 +34,7 @@ const AccountController: React.FC<AccountControllerProps> = ({}) => {
       <div>
         Client Account Details
         <ClientView name={newClientDetails.name} id={newClientDetails.id} />
-        <AccountView payment={newAccountDetails.payment} cardHolder={newAccountDetails.cardHolder}/>
+        <AccountView payment={newAccountDetails.payment} cardHolder={newAccountDetails.cardHolder} />
         <PurchaseHistoryView purchase = {newPurchaseDetails.purchase} />
       </div>
     </div>

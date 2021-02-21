@@ -1,22 +1,26 @@
 import React from 'react';
 
 
-interface ShiftsViewProps {
-  shift: {
-    morning: string,
-    afternoon: string,
-    night: string
-  }
-
+interface Shift {
+  morning: string,
+  afternoon: string,
+  night: string,
 }
 
-const ShiftsView: React.FC<ShiftsViewProps> = ({ shift }) => {
+interface ShiftsViewProps {
+  shift: Shift,
+  handleShift: (shift: Shift) => void;
+}
+
+
+const ShiftsView: React.FC<ShiftsViewProps> = ({shift, handleShift }) => {
   return (
-    <div>
+    <div onClick={() => handleShift(shift)}>
       Available Shifts:
       Morning: {shift.morning},
-      Afternoon: {shift.afternoon},
+      Afternoon: {shift.afternoon}
       Night: {shift.night}
+    
     </div>
   )
 }

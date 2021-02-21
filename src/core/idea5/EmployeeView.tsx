@@ -1,18 +1,23 @@
 import React from 'react';
 
 
-interface EmployeeViewProps {
-  employee: {
-    name: string,
-    id: string,
-    availableShifts: string[],
-    hourlyWage: number
-  }
+ interface Employee {
+  name: string,
+  id: string,
+  availableShifts: string[],
+  hourlyWage: number
 }
 
-const EmployeeView: React.FC<EmployeeViewProps> = ({employee}) => {
+interface EmployeeViewProps {
+  employee: Employee,
+  handleEmployee: (employee: Employee) => void;
+}
+
+const EmployeeView: React.FC<EmployeeViewProps> = ({employee, handleEmployee}) => {
+ 
+  
   return (
-    <div>
+    <div onClick={() => handleEmployee(employee)}>
       Employee name: {employee.name},
       ID: {employee.id},
       Available shifts: {employee.availableShifts.join(", ")},

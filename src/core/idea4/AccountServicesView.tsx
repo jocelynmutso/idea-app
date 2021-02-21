@@ -1,15 +1,21 @@
 import React from 'react';
 
 
-interface AccountServicesViewProps {
-  service: string
+interface Service {
+  serviceName: string
 }
 
 
-const AccountServicesView: React.FC<AccountServicesViewProps> = ({ service }) => {
+interface AccountServicesViewProps {
+ serviceType: Service
+ handleService: (service: Service) => void;
+}
+
+
+const AccountServicesView: React.FC<AccountServicesViewProps> = ({ serviceType, handleService }) => {
   return (
-    <div>
-      Active services: {service}
+    <div onClick={() => {handleService(serviceType)}}>
+      Active services: {serviceType.serviceName}
     </div>
   )
 }

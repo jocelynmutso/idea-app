@@ -48,12 +48,23 @@ const ShiftController: React.FC<ShiftControllerProps> = ({ }) => {
     }
   }
   
+  const handlePayIncrement = (amount: number) => {
+    console.log("payincrement", amount);
+  }
+  
+  const handleEmployee = (employee: EmployeeData ) => {
+    console.log("employee Data", employee)
+  }
+  
+  const handleShift = (shift: ShiftData) => {
+    console.log("Available Shifts: ", shift)
+  }
   
   return (
     <div>
-      {umbrella.employees.map(empl => (<EmployeeView employee={empl}/>))}
-      {umbrella.shifts.map(shift => (<ShiftsView shift={shift} /> ))}
-      <PayIncrementView amount={umbrella.pay.payIncrement}/>
+      {umbrella.employees.map((empl, index) => (<EmployeeView employee={empl} key={index} handleEmployee={handleEmployee}/>))}
+      {umbrella.shifts.map((shift, index) => (<ShiftsView shift={shift} key={index} handleShift={handleShift}/> ))}
+      <PayIncrementView amount={umbrella.pay.payIncrement} handleAmount={handlePayIncrement}/>
     </div>
   )
 }
