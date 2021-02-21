@@ -36,8 +36,8 @@ const AccountController: React.FC<AccountControllerProps> = ({ }) => {
     purchaseHistory: { purchase: "Stuffed Trout" }
   }
 
-  const handleClient = (client: ClientDetails) => {
-    console.log("Client details: ", client)
+  const handleClient = (name: string, id: string) => {
+    console.log("Client details: ", name, id)
   }
 
 
@@ -45,7 +45,7 @@ const AccountController: React.FC<AccountControllerProps> = ({ }) => {
     <div>
       <div>
         Client Account Details
-        <ClientView client={umbrella.client} handleClient={handleClient}/>
+        <ClientView name={umbrella.client.name} id={umbrella.client.id} handleClient={handleClient}/>
         <AccountView payment={umbrella.account.payment} cardHolder={umbrella.account.cardHolder} />
         <PurchaseHistoryView purchase={umbrella.purchaseHistory.purchase} />
       </div>
