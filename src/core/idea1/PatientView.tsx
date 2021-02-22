@@ -1,17 +1,17 @@
 import React from 'react';
+import {DomainModel} from './DomainModel';
 
 
 interface PatientViewProps {
-  name: string
-  handlePatient: (name: string) => void;
+ patients: DomainModel.PatientDetails,
+ handlePatient: (patients: DomainModel.PatientDetails) => void;
 }
 
 
-const PatientView: React.FC<PatientViewProps> = ({ name, handlePatient }) => {
+const PatientView: React.FC<PatientViewProps> = ({ patients, handlePatient }) => {
 
   return (
-    <div onClick={() => handlePatient(name)}>
-      <div>patient: {name}</div>
+    <div onClick={() => handlePatient(patients)}>
     </div>
   )
 }
