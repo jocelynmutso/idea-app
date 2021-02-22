@@ -1,10 +1,10 @@
 import React from 'react';
+import { DomainModel } from './DomainModel';
 
 
 interface PurchaseHistoryViewProps {
-  purchase: string,
-  
-  handlePurchaseHistory: (purchase: string) => void;
+  purchase: DomainModel.PurchaseHistory;
+  handlePurchaseHistory: (purchase: DomainModel.PurchaseHistory) => void;
 }
 
 

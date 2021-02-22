@@ -1,20 +1,18 @@
 import React from 'react';
+import { DomainModel } from './DomainModel';
 
 
 interface ClientViewProps {
-   name: string,
-   id: string,
-  
-
-  handleClient:(name: string, id: string ) => void;
+  client: DomainModel.Client;
+  handleClient: (client: DomainModel.Client) => void;
 
 }
 
-const ClientView: React.FC<ClientViewProps> = ({ name, id, handleClient}) => {
+const ClientView: React.FC<ClientViewProps> = ({ client, handleClient }) => {
   return (
-    <div onClick={()=> handleClient(name, id)}>
-      Client Name: {name}
-      Client ID: {id}
+    <div onClick={() => handleClient(client)}>
+       Client Name: {client.name}
+       Client ID: {client.id}
     </div>
   )
 }

@@ -1,8 +1,9 @@
 import React from 'react';
+import { DomainModel } from './DomainModel';
 
 
 interface PaymentHistoryViewProps {
-  payment: number
+  payment: DomainModel.PaymentHistory
 }
 
 const PaymentHistoryView: React.FC<PaymentHistoryViewProps> = ({ payment }) => {

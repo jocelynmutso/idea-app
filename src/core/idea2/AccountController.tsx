@@ -2,42 +2,22 @@ import React from 'react';
 import { ClientView } from './ClientView';
 import { PurchaseHistoryView } from './PurchaseHistoryView';
 import { AccountView } from './AccountView';
+import { DomainModel } from './DomainModel';
 
 interface AccountControllerProps {
 
 }
 
-interface AccountUmbrella {
-  client: ClientDetails,
-  account: AccountDetails,
-  purchaseHistory: PurchaseHistoryDetails
-}
-
-interface ClientDetails {
-   name: string,
-   id: string
-}
-   
-interface AccountDetails {
-  payment: number,
-  cardHolder: boolean
-}
-
-interface PurchaseHistoryDetails {
-  purchase: string
-}
-
-
 const AccountController: React.FC<AccountControllerProps> = ({ }) => {
 
-  const umbrella: AccountUmbrella = {
+  const umbrella: DomainModel.Umbrella = {
     client: {name: "Amanda Jerimiah", id: "FA009" },
-    account: { payment: 542, cardHolder: true },
-    purchaseHistory: { purchase: "Stuffed Trout" }
+    account: { payment: 542, cardHolder: true, id: "ACCT: 4300ig" },
+    purchase: { purchase: "Stuffed Trout", id: "PUR-4122/56" }
   }
 
-  const handleClient = (name: string, id: string) => {
-    console.log("Client details: ", name, id)
+  const handleClient = (client: DomainModel.Client) => {
+    console.log("Client details: ", client)
   }
   
   const handleAccount = (payment: number, cardHolder: boolean) => {
@@ -53,7 +33,7 @@ const AccountController: React.FC<AccountControllerProps> = ({ }) => {
     <div>
       <div>
         Client Account Details
-        <ClientView name={umbrella.client.name} id={umbrella.client.id} handleClient={handleClient}/>
+        <ClientView client={umbrella.client} handleClient={handleClient}/>
         <AccountView payment={umbrella.account.payment} cardHolder={umbrella.account.cardHolder} handleAccount={handleAccount} />
         <PurchaseHistoryView purchase={umbrella.purchaseHistory.purchase} handlePurchaseHistory={handlePurchaseHistory}/>
       </div>

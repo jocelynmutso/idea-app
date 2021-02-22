@@ -1,20 +1,20 @@
 import React from 'react';
-import { PaymentHistoryView } from './PaymentHistoryView'
-import { LoyaltyCardMemberView } from './LoyaltyCardMemberView'
+import { PaymentHistoryView } from './PaymentHistoryView';
+import { LoyaltyCardMemberView } from './LoyaltyCardMemberView';
+import { DomainModel } from './DomainModel';
 
 
 
 interface AccountViewProps {
-  payment: number
-  cardHolder: boolean
-  
-  handleAccount: (payment: number, cardHolder: boolean) => void;
+  account: DomainModel.Account
+  payment: DomainModel.PaymentHistory
+  handleAccount: (account: DomainModel.Account) => void;
 }
 
-const AccountView: React.FC<AccountViewProps> = ({payment, cardHolder, handleAccount}) => {
+const AccountView: React.FC<AccountViewProps> = ({account, handleAccount}) => {
   return (
-    <div onClick={() => {handleAccount(payment, cardHolder)}}>
-    <PaymentHistoryView payment={payment} />
+    <div onClick={() => {handleAccount(account)}}>
+    <PaymentHistoryView payment={payment]} />
     <LoyaltyCardMemberView isCardHolder={cardHolder} />
     </div>
   )
