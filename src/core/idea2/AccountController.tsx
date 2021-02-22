@@ -12,7 +12,7 @@ const AccountController: React.FC<AccountControllerProps> = ({ }) => {
 
   const umbrella: DomainModel.Umbrella = {
     client: {name: "Amanda Jerimiah", id: "FA009" },
-    account: { payment: 542, cardHolder: true, id: "ACCT: 4300ig" },
+    account: { payment: 542, id: "ACCT: 4300ig" },
     purchase: { purchase: "Stuffed Trout", id: "PUR-4122/56" }
   }
 
@@ -20,21 +20,26 @@ const AccountController: React.FC<AccountControllerProps> = ({ }) => {
     console.log("Client details: ", client)
   }
   
-  const handleAccount = (payment: number, cardHolder: boolean) => {
-    console.log("Account details: " + " Payment: " ,payment, " Cardholder?: ", cardHolder )
+  const handleAccount = (account: DomainModel.Account, payment: DomainModel.Account, id: DomainModel.Account) => {
+    console.log("Account details: " + " Payment: " , payment)
+  }
+  
+  const handlePayment = (payment: DomainModel.Account) => {
+    console.log(payment)
   }
   
   const handlePurchaseHistory = (purchase: string) => {
     console.log("Purchase history: " , purchase )
   }
-
+  
+ 
 
   return (
     <div>
       <div>
         Client Account Details
         <ClientView client={umbrella.client} handleClient={handleClient}/>
-        <AccountView payment={umbrella.account.payment} cardHolder={umbrella.account.cardHolder} handleAccount={handleAccount} />
+        <AccountView account={umbrella.account} payment={umbrella.account.payment} handleAccount={handleAccount} handlePayment={handlePayment} />
         <PurchaseHistoryView purchase={umbrella.purchaseHistory.purchase} handlePurchaseHistory={handlePurchaseHistory}/>
       </div>
     </div>

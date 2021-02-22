@@ -15,17 +15,18 @@ declare namespace DomainModel {
 
   interface Account {
     payment: number,
-    cardHolder: boolean,
     id: string
   }
 
   interface PurchaseHistory {
-    purchase: string
+    purchase: string,
+    id: string,
   }
   
-  interface PaymentHistory {
-    payment: number
+  interface LoyaltyCardMember {
+     cardHolder: boolean,
   }
+  
 
 
 }

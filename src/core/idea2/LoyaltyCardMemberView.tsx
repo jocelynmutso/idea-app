@@ -2,13 +2,13 @@ import React from 'react';
 
 
 interface LoyaltyCardMemberViewProps {
-  isCardHolder: boolean
+  cardHolder: 
 }
 
-const LoyaltyCardMemberView: React.FC<LoyaltyCardMemberViewProps> = ({ isCardHolder }) => {
+const LoyaltyCardMemberView: React.FC<LoyaltyCardMemberViewProps> = ({ cardHolder }) => {
   return (
     <div>
-      Loyalty Card Holder: { isCardHolder + "" }
+      Loyalty Card Holder: { cardHolder + "" }
     </div>
   )
 }
