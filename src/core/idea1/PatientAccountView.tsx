@@ -1,24 +1,24 @@
 import React from 'react';
+import { DomainModel } from './DomainModel';
 
 
 interface PatientAccountViewProps {
-    amount: number,
-    accountNumber: string,
-    handleAccount:(amount: number, accountNumber: string) => void;
+  account: DomainModel.PatientAccountDetails
+  handleAccount: (account: DomainModel.PatientAccountDetails) => void;
 }
 
 
 
-const PatientAccountView: React.FC<PatientAccountViewProps> = ({amount, accountNumber, handleAccount}) => {
-  
+const PatientAccountView: React.FC<PatientAccountViewProps> = ({ account, handleAccount }) => {
+
   return (
-    <div onClick={() => handleAccount(amount, accountNumber)}>
+    <div onClick={() => handleAccount(account)}>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      account: {accountNumber}, amount: {amount}
+      account: {account.accountNumber}, amount: {account.amount}
     </div>
   )
-  
-  
+
+
 }
 
 

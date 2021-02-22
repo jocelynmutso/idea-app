@@ -1,17 +1,18 @@
 import React from 'react';
+import { DomainModel } from './DomainModel'
 
 
 interface TreatmentViewProps {
-  treatmentType: string,
-  handleTreatment:(treatmentType: string) => void;
+  treatment: DomainModel.TreatmentDetails
+  handleTreatment:(treatment: DomainModel.TreatmentDetails) => void;
 }
 
 
-const TreatmentView: React.FC<TreatmentViewProps> = ({ treatmentType, handleTreatment }) => {
+const TreatmentView: React.FC<TreatmentViewProps> = ({ treatment, handleTreatment }) => {
   return (
-    <div onClick={() => {handleTreatment(treatmentType)}}>
+    <div onClick={() => {handleTreatment(treatment)}}>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      Treatment type: {treatmentType}
+      Treatment type: {treatment}
     </div>
   )
 }

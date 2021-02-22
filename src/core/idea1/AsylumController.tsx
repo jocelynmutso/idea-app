@@ -18,20 +18,20 @@ const AsylumController: React.FC<AsylumControllerProps> = ({ }) => {
     {name: "Insane Ivan", id: "774hhfa723" },
     ],
 
-    account: { amount: 5402, accountNumber: "Fg3048ea" },
+    account: { amount: 5402, id: "654", accountNumber: "Fg3048ea" },
 
-    treatment: { type: "hydrotherapy" }
+    treatment: { type: "hydrotherapy", id: "TR-001"}
   }
 
   const handlePatient = (patients: DomainModel.PatientDetails) => {
     console.log("Patient Name ", patients)
   }
 
-  const handleAccount = (amount: number, accountNumber: string) => {
-    console.log("Account Balance: ", amount, "Account number: ", accountNumber)
+  const handleAccount = (account: DomainModel.PatientAccountDetails) => {
+    console.log("Account details: ", account)
   }
 
-  const handleTreatment = (treatment: string) => {
+  const handleTreatment = (treatment: DomainModel.TreatmentDetails) => {
     console.log("Treatment selected: ", treatment)
   }
 
@@ -39,9 +39,9 @@ const AsylumController: React.FC<AsylumControllerProps> = ({ }) => {
   return (
     <div>
       <div>Welcome to the asylum</div>
-      {umbrella.patients.map((patient, index) => (<PatientView patients={patient} key={index} handlePatient={handlePatient} />))}
-      <PatientAccountView amount={umbrella.account.amount} accountNumber={umbrella.account.accountNumber} handleAccount={handleAccount} />
-      <TreatmentView treatmentType={umbrella.treatment.type} handleTreatment={handleTreatment} />
+      {umbrella.patients.map((patient, index) => (<PatientView patients={umbrella.patients}   key={index} handlePatient={handlePatient} />))}
+      <PatientAccountView account={umbrella.account} handleAccount={handleAccount} />
+      <TreatmentView treatment={umbrella.treatment} handleTreatment={handleTreatment} />
     </div>
   )
 }
