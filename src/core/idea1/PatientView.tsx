@@ -1,6 +1,4 @@
 import React from 'react';
-import {TreatmentView} from './TreatmentView'
-
 
 
 interface PatientViewProps {
