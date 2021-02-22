@@ -12,7 +12,7 @@ const TreatmentView: React.FC<TreatmentViewProps> = ({ treatment, handleTreatmen
   return (
     <div onClick={() => {handleTreatment(treatment)}}>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      Treatment type: {treatment}
+      Treatment type: {treatment.type}
     </div>
   )
 }

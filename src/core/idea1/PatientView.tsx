@@ -3,18 +3,18 @@ import { DomainModel } from './DomainModel';
 
 
 interface PatientViewProps {
-  patients: DomainModel.PatientDetails,
+  patient: DomainModel.PatientDetails,
   handlePatient: (patients: DomainModel.PatientDetails) => void;
 }
 
 
-const PatientView: React.FC<PatientViewProps> = ({ patients, handlePatient }) => {
+const PatientView: React.FC<PatientViewProps> = ({ patient, handlePatient }) => {
 
   return (
-    <div onClick={() => handlePatient(patients)}>
+    <div onClick={() => handlePatient(patient)}>
       <div>
-        Patient Name: {patients.name}
-        Patient ID: {patients.id}
+        Patient Name: {patient.name}
+        Patient ID: {patient.id}
       </div>
     </div>
   )
