@@ -1,21 +1,17 @@
 import React from 'react';
-
-
-interface Service {
-  serviceName: string
-}
+import { DomainModel } from './DomainModel';
 
 
 interface AccountServicesViewProps {
- serviceType: Service
- handleService: (service: Service) => void;
+ service: DomainModel.Service
+ handleService: (service: DomainModel.Service) => void;
 }
 
 
-const AccountServicesView: React.FC<AccountServicesViewProps> = ({ serviceType, handleService }) => {
+const AccountServicesView: React.FC<AccountServicesViewProps> = ({ service, handleService }) => {
   return (
-    <div onClick={() => {handleService(serviceType)}}>
-      Active services: {serviceType.serviceName}
+    <div onClick={() => {handleService(service)}}>
+      Active services: {service.service}
     </div>
   )
 }

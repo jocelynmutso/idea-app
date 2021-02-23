@@ -1,14 +1,10 @@
 import React from 'react';
+import { DomainModel } from './DomainModel';
 
-
-interface AccountOwner {
-  name: string,
-  id: string,
-}
 
 interface AccountOwnerViewProps {
-  owner: AccountOwner,
-  handleAccountOwner: (owner: AccountOwner) => void;
+  owner: DomainModel.AccountOwner
+  handleAccountOwner: (owner: DomainModel.AccountOwner) => void;
 }
 
 const AccountOwnerView: React.FC<AccountOwnerViewProps> = ({ owner, handleAccountOwner }) => {
