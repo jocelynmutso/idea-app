@@ -6,11 +6,10 @@ import { DomainModel } from './DomainModel';
 
 interface AccountViewProps {
   account: DomainModel.Account;
-  payment: DomainModel.Account;  
+  payment: number;  
   
   handleAccount: (account: DomainModel.Account) => void;
-  handlePayment: (payment: DomainModel.Account) =>  void;
-  handlePurchase: (purchase: DomainModel.PurchaseHistory) => void;
+  handlePayment: (payment: number) =>  void;
 }
 
 const AccountView: React.FC<AccountViewProps> = ({account, payment, handleAccount, handlePayment}) => {

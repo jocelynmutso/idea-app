@@ -1,13 +1,11 @@
 import React from 'react';
+import { DomainModel } from './DomainModel';
 
-interface Client {
-  name: string,
-  id: string
-}
+
 
 interface ClientViewProps {
-  client: Client
-  handleClient:(client: Client) => void;
+  client: DomainModel.Client
+  handleClient:(client: DomainModel.Client) => void;
  
 }
 
@@ -18,7 +16,7 @@ const ClientView: React.FC<ClientViewProps> = ({ client, handleClient }) => {
         <div onClick={() => handleClient(client)}>
           &nbsp; &nbsp; &nbsp; &nbsp;
           Client name: {client.name},
-          Client ID: {client.id}
+          Client id: {client.id}
         </div>
     </div>
   )

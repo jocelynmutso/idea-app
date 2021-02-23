@@ -1,8 +1,9 @@
 import React from 'react';
+import { DomainModel } from './DomainModel';
 
 
 interface LoyaltyCardMemberViewProps {
-  cardHolder: 
+  cardHolder: DomainModel.LoyaltyCardMember
 }
 
 const LoyaltyCardMemberView: React.FC<LoyaltyCardMemberViewProps> = ({ cardHolder }) => {

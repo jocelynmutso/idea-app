@@ -1,16 +1,11 @@
-import React from 'react'
-import { PolicyDatesView } from './PolicyDatesView'
+import React from 'react';
+import { PolicyDatesView } from './PolicyDatesView';
+import { DomainModel } from './DomainModel';
 
-
-interface Policy {
-  type: string,
-  price: number,
-  effectiveDate: Date,
-}
 
 interface PolicyViewProps {
-  policy: Policy,
-  handlePolicy:(policy: Policy) => void;
+  policy: DomainModel.Policy,
+  handlePolicy:(policy: DomainModel.Policy) => void;
 
 }
 
