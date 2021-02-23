@@ -1,26 +1,22 @@
 import React from 'react';
+import { DomainModel } from './DomainModel';
 
 
-interface Shift {
-  morning: string,
-  afternoon: string,
-  night: string,
-}
 
 interface ShiftsViewProps {
-  shift: Shift,
-  handleShift: (shift: Shift) => void;
+  shift: DomainModel.Shift,
+  handleShift: (shiftS: DomainModel.Shift) => void;
 }
 
 
-const ShiftsView: React.FC<ShiftsViewProps> = ({shift, handleShift }) => {
+const ShiftsView: React.FC<ShiftsViewProps> = ({ shift, handleShift }) => {
   return (
     <div onClick={() => handleShift(shift)}>
       Available Shifts:
       Morning: {shift.morning},
       Afternoon: {shift.afternoon}
       Night: {shift.night}
-    
+
     </div>
   )
 }

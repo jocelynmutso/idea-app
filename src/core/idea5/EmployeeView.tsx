@@ -1,21 +1,15 @@
 import React from 'react';
+import { DomainModel } from './DomainModel';
 
-
- interface Employee {
-  name: string,
-  id: string,
-  availableShifts: string[],
-  hourlyWage: number
-}
 
 interface EmployeeViewProps {
-  employee: Employee,
-  handleEmployee: (employee: Employee) => void;
+  employee: DomainModel.Employee,
+  handleEmployee: (employee: DomainModel.Employee) => void;
 }
 
-const EmployeeView: React.FC<EmployeeViewProps> = ({employee, handleEmployee}) => {
- 
-  
+const EmployeeView: React.FC<EmployeeViewProps> = ({ employee, handleEmployee }) => {
+
+
   return (
     <div onClick={() => handleEmployee(employee)}>
       Employee name: {employee.name},
