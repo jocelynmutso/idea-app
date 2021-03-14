@@ -1,3 +1,9 @@
-import { AsylumController } from './AsylumController';
+import { AsylumController as Controller } from './AsylumController';
+import { Provider } from './Context';
 
-export { AsylumController }
+
+const Asylum = {
+  Controller, Provider 
+}
+
+export { Asylum }

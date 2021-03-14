@@ -3,6 +3,7 @@ import { PatientAccountView } from './PatientAccountView';
 import { PatientView } from './PatientView'
 import { TreatmentView } from './TreatmentView';
 import { DomainModel } from './DomainModel';
+import { useContext } from './Context'
 
 interface AsylumControllerProps {
 
@@ -10,18 +11,8 @@ interface AsylumControllerProps {
 
 const AsylumController: React.FC<AsylumControllerProps> = ({ }) => {
 
-  const umbrella: DomainModel.Umbrella = {
+  const umbrella = useContext().umbrella;
 
-    patients: [
-    {name: "Crazy Jebadiah", id: "6533388fff" },
-    {name: "Lunactic Larry", id: "4262h7774" },
-    {name: "Insane Ivan", id: "774hhfa723" },
-    ],
-
-    account: { amount: 5402, id: "654", accountNumber: "Fg3048ea" },
-
-    treatment: { type: "hydrotherapy", id: "TR-001"}
-  }
 
   const handlePatient = (patients: DomainModel.PatientDetails) => {
     console.log("Patient Name ", patients)
