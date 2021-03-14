@@ -31,7 +31,7 @@ const AsylumController: React.FC<AsylumControllerProps> = ({ }) => {
     <div>
       <div>Welcome to the asylum</div>
       {umbrella.patients.map((patient, index) => (<PatientView patient={patient} key={index} handlePatient={handlePatient} />))}
-      <PatientAccountView account={umbrella.account} handleAccount={handleAccount} />
+      <PatientAccountView  handleAccount={handleAccount} />
       <TreatmentView treatment={umbrella.treatment} handleTreatment={handleTreatment} />
     </div>
   )

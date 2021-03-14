@@ -1,15 +1,15 @@
 import React from 'react';
 import { DomainModel } from './DomainModel';
-
+import { useContext } from './Context'
 
 interface PatientAccountViewProps {
-  account: DomainModel.PatientAccountDetails
   handleAccount: (account: DomainModel.PatientAccountDetails) => void;
 }
 
 
 
-const PatientAccountView: React.FC<PatientAccountViewProps> = ({ account, handleAccount }) => {
+const PatientAccountView: React.FC<PatientAccountViewProps> = ({ handleAccount }) => {
+  const account = useContext().umbrella.account
 
   return (
     <div onClick={() => handleAccount(account)}>
