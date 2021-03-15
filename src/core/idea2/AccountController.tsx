@@ -2,6 +2,7 @@ import React from 'react';
 import { ClientView } from './ClientView';
 import { AccountView } from './AccountView';
 import { DomainModel } from './DomainModel';
+import { useContext } from './Context';
 
 interface AccountControllerProps {
 
@@ -9,11 +10,7 @@ interface AccountControllerProps {
 
 const AccountController: React.FC<AccountControllerProps> = ({ }) => {
 
-  const umbrella: DomainModel.Umbrella = {
-    client: { name: "Amanda Jerimiah", id: "FA009" },
-    account: { payment: 5432, id: "ACCT: 4300ig" },
-    purchase: { purchase: "Stuffed Trout", id: "PUR-4122/56" }
-  }
+  const umbrella = useContext().umbrella;
 
   const handleClient = (client: DomainModel.Client) => {
     console.log("Client details: ", client)

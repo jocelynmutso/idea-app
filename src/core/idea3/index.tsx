@@ -1,3 +1,9 @@
-import { PolicyController } from './PolicyController';
+import { PolicyController as Controller } from './PolicyController';
+import { Provider } from './Context';
 
-export { PolicyController }
+const Policy = {
+  Controller,
+  Provider
+}
+
+export { Policy }

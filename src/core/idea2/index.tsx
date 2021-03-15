@@ -1,3 +1,9 @@
-import { AccountController } from './AccountController';
+import { AccountController as Controller} from './AccountController';
+import { Provider } from './Context';
 
-export { AccountController }
+const Account = {
+  Controller,
+  Provider
+}
+
+export { Account }
